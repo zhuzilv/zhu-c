@@ -9,8 +9,11 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { Button } from '../Button';
+import Button  from '../Button';
+import Docs from './buttonDoc.ts';
+import Page from './buttonPage';
 
+console.log(Page)
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/Button',
@@ -38,23 +41,26 @@ export default {
   },
   // 页面静态数据
   parameters: {
+    // docs: docs(),
+    // docs: {
+    //   page: Docs(),
+    // },
     // docs: { 
     //   // page: null 
     // },
-    docs: {
-      page: () => (
-        <>
-          <Title> 我只是个title</Title>
-          <Subtitle>Subtitle</Subtitle>
-          <Description>Description</Description>
-          <Primary>Primary</Primary>
-          <Stories>Stories</Stories>
-          <ArgsTable story={PRIMARY_STORY} />
+    // docs: {
+    //   page: () => (
+    //     <>
+    //       <Title> 我只是个title</Title>
+    //       <Subtitle>Subtitle</Subtitle>
+    //       <Description>Description</Description>
+    //       <Primary>Primary</Primary>
+    //       <Stories>Stories</Stories>
+    //       <ArgsTable story={PRIMARY_STORY} />
 
-        </>
-      ),
-    },
- parameters: { actions: { argTypesRegex: '^on.*' } },
+    //     </>
+    //   ),
+      parameters: { actions: { argTypesRegex: '^on.*' } },
     backgrounds: {
       values: [
         { name: 'red', value: '#f00' },
@@ -83,48 +89,19 @@ export default {
 console.log(typeof Button,'typeof Button')
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (a) => <Button {...a} />;
-const Gql: any = {
-  name: '用户量',
-  chartType: 'bar',
-  attrs: {},
-  dimensions: ['city'],
-  filter: null,
-  granularities: [{ id: 'tm', interval: 3600000 }, { id: 'city', top: 5 }],
-  limit: 20,
-  metrics: [{ id: 'uc', name: '用户量', type: 'prepared' }],
-  orders: null,
-  timeRange: 'day:8,1',
-  targetUser: 'uv',
-  skip: 0,
-  compProps: {
-    // isFact: true,
-    factTitle: '用户量统计',
-    showXAxisTitle: true,
-    showYAxisTitle: true,
-    isFrequency: false,
-  },
-};
-const Response = {
-  data: [['北京', 5483.0], ['上海', 3260.0], ['未知', 2362.0], ['深圳', 2137.0], ['广州', 1538.0]],
-  meta: {
-    columns: [
-      { id: 'city', name: '城市', isDim: true, isRate: false, isDuration: false },
-      { id: 'uc', name: '用户量', isDim: false, isRate: false, isDuration: false },
-    ],
-  },
-};
 const LayoutTemplate: any = (args) => {
   return <>
-    <header>miaoshu</header>
-    <header>miaoshu</header>
     
     <Button {...args} />
     <header>miaoshu</header>
-    
+    {/* <Docs></Docs> */}
+    {/* {Docs} */}
+    {/* {Page()} */}
+    {/* {Page} */}
+    <Page></Page>
     <Button {...args} />
     <header>miaoshu</header>
     
-   <Button {...args} />
   </>
 }
 
