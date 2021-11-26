@@ -13,7 +13,6 @@ import Button  from '../Button';
 import Docs from './buttonDoc.ts';
 import Page from './buttonPage';
 
-console.log(Page)
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/Button',
@@ -42,9 +41,9 @@ export default {
   // 页面静态数据
   parameters: {
     // docs: docs(),
-    // docs: {
-    //   page: Docs(),
-    // },
+    docs: {
+      page: Page,
+    },
     // docs: { 
     //   // page: null 
     // },
@@ -98,7 +97,7 @@ const LayoutTemplate: any = (args) => {
     {/* {Docs} */}
     {/* {Page()} */}
     {/* {Page} */}
-    <Page></Page>
+    {/* <Page></Page> */}
     <Button {...args} />
     <header>miaoshu</header>
     
